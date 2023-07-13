@@ -1,0 +1,392 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>GoBid</title>
+
+  <!-- slider stylesheet -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" /> -->
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+
+  <!-- responsive style -->
+  <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
+</head>
+
+<body>
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <div>
+              <img src="{% static 'images/mainlogoblack.png' %}" width="150px" height="70px">
+            </div>
+          </a>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="s-1"> </span>
+            <span class="s-2"> </span>
+            <span class="s-3"> </span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+              <ul class="navbar-nav  ">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#aboutLink"> About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#serviceLink"> Services </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#contactLink">Contact Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'userlogin' %}">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'register' %}">Register</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section ">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 ">
+                  <div class="detail_box">
+                    <h2>
+                      Bid with
+                    </h2>
+                    <div class="second_text">
+                      <h1>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GoBid
+                      </h1>
+                    </div>
+                  </div>
+                </div>
+                  <img class="back" src="{% static 'images/auction2.png' %}" width="550" height="400">
+              </div>
+            </div>
+          </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+
+  <!-- about section -->
+
+  <section class="about_section " id="aboutLink">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{% static 'images/img1.png' %}" alt="">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About Us
+              </h2>
+            </div>
+            <p>
+              At Gobid, we understand the thrill of finding a great deal and the excitement of winning an auction. 
+              That's why we've created a user-friendly platform that makes it easy to browse and bid on a range of items 
+              from Currency, Stamps and Art.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+
+
+  <!-- service section -->
+  <section class="service_section layout_padding" id="serviceLink">
+    <div class="container-fluid">
+      <div class="heading_container">
+        <h2>
+          Our Portfolio
+        </h2>
+        <p>
+          At Gobid, we offer a comprehensive range of services to our users.
+        </p>
+      </div>
+
+      <div class="service_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/coins.jpg' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Currency
+            </h5>
+            <p>
+              Currency's like old coins, old notes.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/gold.jpg' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Stamps
+            </h5>
+            <p>
+              Old indian stamps, government stamps.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/img_50.jpg' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Photos
+            </h5>
+            <p>
+              Original Paintings, Photos.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/utensils.jpg' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Utensils
+            </h5>
+            <p>
+              Old vessels, dish, spoon.
+            </p>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="{% static 'images/sculpt.jpg' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h5>
+              Sculpture
+            </h5>
+            <p>
+              We offer low relief, high relief, and sunken relief sculpture.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end service section -->
+
+  <!-- work section -->
+
+  <section class="work_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          How We Work!
+        </h2>
+        <p>
+          An auction website is an online platform that allows buyers and sellers to engage in bidding and selling activities
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail_container">
+            <div class="box b-1">
+              <div class="top-box">
+                <div class="icon-box">
+                  <img src="{% static 'images/work-i1.png' %}" alt="">
+                </div>
+                <h5>
+                  We Come Up With A Good Idea For GoBid Auction Website
+                </h5>
+              </div>
+              <div class="bottom-box">
+                <p>
+                  Concept of an auction website is to provide a platform where buyers and sellers can engage in a transparent, 
+                  competitive bidding process. The system facilitates the listing of items for auction, 
+                  the bidding process, and the payment and shipping of items to the winning bidder.
+                </p>
+              </div>
+            </div>
+            <div class="box b-1">
+              <div class="top-box">
+                <div class="icon-box">
+                  <img src="{% static 'images/work-i2.png' %}" alt="">
+                </div>
+                <h5>
+                  Core Functionality
+                </h5>
+              </div>
+              <div class="bottom-box">
+                <p>
+                  The system's core functionality includes user registration, 
+                  item listing, bidding, and payment processing. Users can register on the platform and create a profile, 
+                  which allows them to participate in auctions, bid on items, and monitor the auction activity.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="img-box">
+            <img src="{% static 'images/auction.png' %}" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end work section -->
+
+  <div class="footer_bg">
+
+    <!-- contact section -->
+    <section class="contact_section layout_padding" id="contactLink">
+      <div class="container">
+        <div class="heading_container">
+          <h2>
+            Get In touch
+          </h2>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-8 mx-auto">
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-6">
+                  <input type="text" class="form-control" id="inputName4" placeholder="Name ">
+                </div>
+                <div class="form-group col-md-6">
+                  <input type="email" class="form-control" id="inputEmail4" placeholder="Email id">
+                </div>
+
+              </div>
+              <div class="form-row">
+                <div class="form-group col">
+                  <input type="text" class="form-control" id="inputSubject4" placeholder="Subject">
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" id="inputMessage" placeholder="Message">
+              </div>
+              <div class="d-flex justify-content-center">
+                <button type="submit" class="">Send</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- end contact section -->
+
+
+
+    <!-- info section -->
+    <section class="info_section layout_padding2">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="info_logo">
+              <h3>
+                GoBid
+              </h3>
+              <p>
+                Thank you for choosing Gobid for all your online auction needs.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="info_contact">
+              <h4>
+                CONTACT DETAILS
+              </h4>
+              <a href="">
+                <div class="img-box">
+                  <img src="{% static 'images/telephone-white.png' %}" width="12px" alt="">
+                </div>
+                <p>
+                  +91 9856781269
+                </p>
+              </a>
+              <a href="">
+                <div class="img-box">
+                  <img src="{% static 'images/envelope-white.png' %}" width="18px" alt="">
+                </div>
+                <p>
+                  official.gobid@gmail.com
+                </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end info_section -->
+
+    <!-- footer section -->
+    <section class="container-fluid footer_section">
+      <div class="container">
+        <p>
+          &copy; <span id="displayYear"></span> All Rights Reserved By
+          GoBid
+        </p>
+      </div>
+    </section>
+    <!-- footer section -->
+
+  </div>
+
+  <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+
+</body>
+
+</html>

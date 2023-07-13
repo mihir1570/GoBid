@@ -1,0 +1,405 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tutorial</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <!-- CSS -->
+  <meta name="robots" content="noindex,follow" />
+  <style>
+    /* Basic Styling */
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 15px;
+      display: flex;
+    }
+
+    /* Columns */
+    .left-column {
+      width: 65%;
+      position: relative;
+    }
+
+    .right-column {
+      width: 35%;
+      margin-top: 60px;
+    }
+
+
+    /* Left Column */
+    /* .left-column img {
+    /* margin-top: 50px;
+
+    .left-column img.active {
+      opacity: 1;
+    }
+
+    */
+    /* Right Column */
+
+    /* Product Description */
+    .product-description {
+      border-bottom: 1px solid #E1E8EE;
+      margin-bottom: 20px;
+    }
+
+    .product-description span {
+      font-size: 12px;
+      color: #358ED7;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .product-description h1 {
+      font-weight: 300;
+      font-size: 52px;
+      color: #43484D;
+      letter-spacing: -2px;
+    }
+
+    .product-description p {
+      font-size: 16px;
+      font-weight: 300;
+      color: #86939E;
+      line-height: 24px;
+    }
+
+    /* Product Configuration */
+    .product-color span,
+    .cable-config span {
+      font-size: 14px;
+      font-weight: 400;
+      color: #86939E;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+
+    /* Product Color */
+    .product-color {
+      margin-bottom: 30px;
+    }
+
+    .color-choose div {
+      display: inline-block;
+    }
+
+    .color-choose input[type="radio"] {
+      display: none;
+    }
+
+    .color-choose input[type="radio"]+label span {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      margin: -1px 4px 0 0;
+      vertical-align: middle;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .color-choose input[type="radio"]+label span {
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+    }
+
+    .color-choose input[type="radio"]#red+label span {
+      background-image: url(images/number-1.png);
+      background-size: cover;
+    }
+
+    .color-choose input[type="radio"]#red:hover+label span {
+      background-color: #9eff6a;
+    }
+
+    .color-choose input[type="radio"]#blue+label span {
+      background-image: url(images/number-2.png);
+      background-size: cover;
+    }
+
+    .color-choose input[type="radio"]#blue:hover+label span {
+      background-color: #9eff6a;
+    }
+
+    .color-choose input[type="radio"]#black+label span {
+      background-image: url(images/number-3.png);
+      background-size: cover;
+    }
+
+    .color-choose input[type="radio"]#black:hover+label span {
+      background-color: #9eff6a;
+    }
+
+    .color-choose input[type="radio"]#white+label span {
+      background-image: url(images/number-4.png);
+      background-size: cover;
+    }
+
+    .color-choose input[type="radio"]#white:hover+label span {
+      background-color: #9eff6a;
+    }
+
+    .color-choose input[type="radio"]:checked+label span {
+      background-image: url(images/check-icn.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    /* Cable Configuration */
+    .cable-choose {
+      margin-bottom: 20px;
+    }
+
+    .cable-choose button {
+      border: 2px solid #E1E8EE;
+      border-radius: 6px;
+      padding: 13px 20px;
+      font-size: 14px;
+      color: #5E6977;
+      background-color: #fff;
+      transition: all .5s;
+    }
+
+    .cable-choose button:hover,
+    .cable-choose button:active,
+    .cable-choose button:focus {
+      border: 2px solid #86939E;
+      outline: none;
+    }
+
+    .cable-config {
+      border-bottom: 1px solid #E1E8EE;
+      margin-bottom: 20px;
+    }
+
+    .cable-config a {
+      color: #358ED7;
+      text-decoration: none;
+      font-size: 12px;
+      position: relative;
+      margin: 10px 0;
+      display: inline-block;
+    }
+
+    .cable-config a:before {
+      content: "?";
+      height: 15px;
+      width: 15px;
+      border-radius: 50%;
+      border: 2px solid rgba(53, 142, 215, 0.5);
+      display: inline-block;
+      text-align: center;
+      line-height: 16px;
+      opacity: 0.5;
+      margin-right: 5px;
+    }
+
+    /* Product Price */
+
+    .cart-btn {
+      display: inline-block;
+      background-color: #7DC855;
+      border-radius: 6px;
+      font-size: 16px;
+      color: #FFFFFF;
+      text-decoration: none;
+      padding: 12px 30px;
+      transition: all .5s;
+    }
+
+    .cart-btn:hover {
+      background-color: #64af3d;
+    }
+
+    .input {
+      min-height: 30px;
+      max-height: 30px;
+      max-width: 130px;
+      min-width: 130px;
+      border-radius: 5px;
+      margin-right: 20px;
+      border-color: #E1E8EE;
+    }
+
+    /* Responsive */
+    @media (max-width: 940px) {
+      .container {
+        flex-direction: column;
+        overflow-y: auto;
+        max-height: auto;
+      }
+
+      .left-column,
+      .right-column {
+        width: 100%;
+      }
+
+      .left-column img {
+        width: 150px;
+        height: 150px;
+        /* margin-top: 40px; */
+        right: 0;
+        top: -20px;
+        left: initial;
+      }
+    }
+
+    .slider {
+      width: 50%;
+      max-width: 50%;
+      margin-top: 60px;
+      height: 100%;
+      max-height: 50%;
+    }
+
+    .img-box img {
+      width: 150%;
+      max-width: 150%;
+      height: 100%;
+      max-height: 150%;
+      object-fit: cover;
+    }
+
+    .btn {
+      border: none;
+      outline: none;
+      background: #888;
+      padding: 10px;
+      font-size: 16px;
+      color: #ffffff;
+      cursor: pointer;
+      margin-top: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border-radius: 5px;
+    }
+
+    .btn:hover {
+      background: #111;
+    }
+
+    .dash {
+      border: transparent;
+      background-color: #b4b4b4;
+      color: #ffffff;
+      padding: 5px;
+      cursor: pointer;
+      text-align: center;
+      width: 80px;
+      max-width: 80px;
+      margin-top: 40px;
+      border-radius: 5px;
+    }
+
+    .dash:hover {
+      background-color: #868686;
+    }
+  </style>
+
+</head>
+
+<body>
+  <main class="container">
+
+    <!-- Left Column -->
+    <div class="left-column">
+      <div class="slider">
+        <div class="img-box">
+          <img src="{% static 'images/a.jpg' %}" class="slider-img">
+        </div>
+
+        <button class="btn" onclick="prev()">Prev</button>
+        <button class="btn" onclick="next()">Next</button>
+      </div>
+    </div>
+
+
+    <!-- Right Column -->
+    <div class="right-column">
+      <!-- <h1 style="color: #111;">{{data.ain}}</h1> -->
+      <div class="product-description">
+        <span>Auction</span>
+        <h1>{{data.ain}}</h1>
+        <p>{{data.aid}}</p>
+      </div>
+
+      <!-- Product Configuration -->
+      <div class="product-configuration">
+
+        <!-- Cable Configuration -->
+        <div class="cable-config">
+          <span>Base Price: ₹{{data.aip}}</span>
+          <h1 class="text-dark"></h1>
+          <div class="cable-choose">
+            <button>₹1,50,000</button>
+            <button>₹97,000</button>
+            <button>₹53,000</button>
+          </div </div>
+        </div>
+
+        <!-- Product Pricing -->
+        <div class="product-price">
+          <span>
+            <input class="input" type="number" placeholder="  Enter Amount in ₹ ">
+          </span>
+          <a href="{% url 'bidder' %}" class="cart-btn">Place Bid</a>
+          <p class="dash">
+            <a style="text-decoration: none; color: #fff;" href="{% url 'data' %}">Back</a>
+          </p>
+        </div>
+      </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+  <script>
+    $(document).ready(function () {
+
+      $('.color-choose input').on('click', function () {
+        var headphonesColor = $(this).attr('data-image');
+
+        $('.active').removeClass('active');
+        $('.left-column img[data-image = ' + headphonesColor + ']').addClass('active');
+        $(this).addClass('active');
+      });
+
+    });
+
+    var slider_img = document.querySelector('.slider-img');
+    var images = ['a.jpg', 'b.jpg', 'c.jpg', 'd.jpg', 'e.jpg'];
+    var i = 0;
+
+    function prev() {
+      if (i <= 0) i = images.length;
+      i--;
+      return setImg();
+    }
+
+    function next() {
+      if (i >= images.length - 1) i = -1;
+      i++;
+      return setImg();
+    }
+
+    function setImg() {
+      return slider_img.setAttribute('src', "{% static 'images/' %}" + images[i]);
+
+    }
+  </script>
+</body>
+
+</html>

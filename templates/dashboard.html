@@ -1,0 +1,469 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.5">
+  <title>Auction Product Catalogue</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+    :root {
+
+      font-size: 15px;
+
+      --var-heading: normal normal 600 1.5em/1.6em 'Outfit', sans-serif;
+
+      --var-small-heading: normal normal 400 1em/1em 'Outfit', sans-serif;
+
+      --var-para: normal normal 300 1em/1.55em 'Outfit', sans-serif;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(90deg, #b8feff, #fd94ff);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      /* background-color: #000000; */
+      font-weight: bold;
+    }
+
+    .categories {
+      display: flex;
+      justify-content: center;
+      background-color: #000000;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .categories button {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      background-color: #000000;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      font-size: 20px;
+      border-radius: 20px;
+      font-weight: lighter;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      padding: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .categories button:hover {
+      /* background: linear-gradient(90deg, #b8feff, #fd94ff); */
+      background-color: #555;
+      border-radius: 20px;
+      padding: 10px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    .product-container {
+      /* border: 1px solid #ccc; */
+      margin: 10px;
+      padding: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    html {
+      box-sizing: border-box;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+      margin: 0;
+    }
+
+    .hero-image {
+      width: 100%;
+      border-radius: 15px;
+      display: block;
+      min-height: 250px;
+      max-height: 250px;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    h1 {
+      font: var(--var-heading);
+      color: black;
+      padding: 0.5em 0;
+    }
+
+    h2 {
+      font: var(--var-small-heading);
+      color: gray;
+    }
+
+    p {
+      font: var(--var-para);
+      color: gray;
+    }
+
+    span {
+      color: gray;
+    }
+
+    .card-container {
+      width: 100%;
+      max-width: 300px;
+      margin: 2em auto;
+      opacity: 0.8;
+      transform: translateZ(0);
+      background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+      linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1));
+      border-radius: 15px;
+      margin-bottom: 1rem;
+      padding: 2rem;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    div.flex-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    div.coin-base,
+    .time-left,
+    .card-attribute {
+      display: flex;
+      align-items: center;
+      padding: 0.5em 0;
+    }
+
+    .card-attribute {
+      padding-bottom: 1.5em;
+      border-top: 2px solid black;
+    }
+
+    a.hero-image-container {
+      position: relative;
+      display: block;
+    }
+
+    .hero-image-container:hover::after {
+      opacity: 1;
+    }
+
+    .small-image {
+      width: 1.2em;
+      margin-right: .5em;
+    }
+
+    .small-avatar {
+      width: 2em;
+      border-radius: 200px;
+      outline: 2px solid rgb(0, 0, 0);
+      margin-right: 1.4em;
+    }
+
+    div.attribution {
+      margin: 0 auto;
+      width: 100%;
+      font: var(--var-para);
+      text-align: center;
+      padding: 1.5em 0 4em 0;
+      color: black;
+    }
+
+    .attribution a {
+      color: black;
+    }
+
+    .button {
+      background-color: #000000;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      width: 100%;
+    }
+
+    .button:hover {
+      background-color: #01425c;
+    }
+
+    .logo {
+      width: 150px;
+      height: 70px;
+      margin-left: 55px;
+      margin-top: 5px;
+    }
+
+    .auction {
+      margin-top: 5px;
+      color: #ffffff;
+      text-align: center;
+    }
+
+    @media (min-width:600px) {
+      body {
+        font-size: 18px;
+      }
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap');
+
+    :root {
+      --gray: #555;
+      --purple: #4e65ff;
+      --green-blue: #92effd;
+      --white: #ffffff;
+    }
+
+    *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .navigation {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 120px;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      border-radius: 5px;
+      background: var(--white);
+      /* box-shadow: 0 25px 35px rgba(0, 0, 0, 0.1); */
+      overflow: hidden;
+      transition: height 0.5s, width 0.5s;
+      transition-delay: 0s, 0.75s;
+    }
+
+    .navigation .user-box {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      transition: 0.5s;
+      transition-delay: 0.5s;
+    }
+
+    .navigation .user-box .username {
+      font-size: 1.2rem;
+      white-space: nowrap;
+      color: var(--gray);
+    }
+
+    .navigation .user-box .image-box {
+      position: relative;
+      min-width: 60px;
+      height: 60px;
+      background: var(--white);
+      border-radius: 50%;
+      overflow: hidden;
+      border: 10px solid var(--white);
+    }
+
+    .navigation .user-box .image-box img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .navigation .menu-toggle {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .navigation .menu-toggle::before {
+      content: "";
+      position: absolute;
+      width: 32px;
+      height: 2px;
+      background: var(--gray);
+      transform: translateY(-10px);
+      box-shadow: 0 10px var(--gray);
+      transition: 0.5s;
+    }
+
+    .navigation .menu-toggle::after {
+      content: "";
+      position: absolute;
+      width: 32px;
+      height: 2px;
+      background: var(--gray);
+      transform: translateY(10px);
+      transition: 0.5s;
+    }
+
+    .menu {
+      position: absolute;
+      width: 100%;
+      height: calc(100% - 60px);
+      margin-top: 60px;
+      padding: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .menu li {
+      list-style: none;
+    }
+
+    .menu li a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 20px 0;
+      font-size: 1rem;
+      text-decoration: none;
+      color: var(--gray);
+    }
+
+    .menu li a ion-icon {
+      font-size: 1.5rem;
+    }
+
+    .menu li a:hover {
+      color: var(--purple);
+    }
+
+    .navigation.active .menu-toggle::before {
+      transform: translateY(0px) rotate(45deg);
+      box-shadow: none;
+    }
+
+    .navigation.active .menu-toggle::after {
+      transform: translateY(0px) rotate(-45deg);
+    }
+
+    .navigation.active {
+      min-width: 250px;
+      max-width: 300px;
+      height: 220px;
+      transition: width 0.5s, height 0.5s;
+      transition-delay: 0s, 0.5s;
+    }
+
+    .navigation.active .user-box {
+      width: calc(100% - 60px);
+      transition-delay: 0s;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <img class="logo" src="{% static 'images/mainlogoblack.png' %}">
+  </header>
+  <div class="container">
+
+    <div class="navigation">
+      <div class="user-box">
+        <div class="image-box">
+          <img src="{% static 'images/user_profile.jpg' %}" alt="avatar">
+        </div>
+        <p class="username"></p>
+      </div>
+      <div class="menu-toggle"></div>
+      <ul class="menu">
+        <li><a href="{% url 'profile' %}"><ion-icon name="person-outline"></ion-icon>Profile</a></li>
+        <li><a href="{% url 'seller' %}"><ion-icon name="product-outline"></ion-icon>Sell your Item</a></li>
+        <li><a href="{% url 'index' %}"><ion-icon name="log-out-outline"></ion-icon>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    let menuToggle = document.querySelector('.menu-toggle');
+    let navigation = document.querySelector('.navigation');
+
+    menuToggle.onclick = function () {
+      navigation.classList.toggle('active');
+    }
+  </script>
+  <div class="categories" role="group">
+    <button>All</button>
+    <button>Currency</button>
+    <button>Stamps</button>
+    <button>Painting</button>
+    <button>Utensils</button>
+    <button>Sculpture</button>
+  </div>
+  
+  <div class="product-container">
+    {% for dt in datas %}
+    <div class="card-container">
+      
+      <img class="hero-image" src="media/{{dt.simg}}" />
+      <!-- <img class="hero-image" src="{% static 'media/{{dt.simg}}' %}" /> -->
+      <main class="main-content">
+        <h1>{{dt.ain}}</h1>
+        <div class="flex-row">
+          <div class="coin-base">
+            <img src="{% static 'images/rupee.png' %}" alt="Ethereum" class="small-image" />
+            <h2>{{dt.aip}}</h2>
+          </div>
+        </div>
+        <div class="flex-row">
+          <div class="time-left">
+            <img src="{% static 'images/clock.png' %}" alt="clock" class="small-image" />
+            <p>{{dt.et}}</p>
+          </div>
+        </div>
+      </main>
+      <div class="card-attribute">
+        <p>Sell by: {{dt.fn}}</p>
+      </div>
+      <div>
+        <a class="button" href="/product/{{dt.id}}">Bid Now</a>
+      </div>
+      
+    </div>
+    {% endfor %}
+  </div>
+ 
+</body>
+
+</html>
